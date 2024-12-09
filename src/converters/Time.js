@@ -1,13 +1,13 @@
 
 import Converter from './Converter';
 
-export default class TimeConverter extends Converter {
+export default class Time extends Converter {
   #seconds = 0;
 
   from(unit) {
     if (unit === 'ns') {
       this.#seconds = this.value / 1000 / 1000 / 1000;
-    } else if (unit === 'us') {
+    } else if (unit === 'µs') {
       this.#seconds = this.value / 1000 / 1000;
     } else if (unit === 'ms') {
       this.#seconds = this.value / 1000;
@@ -36,7 +36,7 @@ export default class TimeConverter extends Converter {
   to(unit) {
     if (unit === 'ns') {
       return this.#seconds * 1000 * 1000 * 1000;
-    } else if (unit === 'us') {
+    } else if (unit === 'µs') {
       return this.#seconds * 1000 * 1000;
     } else if (unit === 'ms') {
       return this.#seconds * 1000;

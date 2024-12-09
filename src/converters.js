@@ -1,12 +1,13 @@
 
-import DigitalStorageConverter from "./converters//DigitalStorage";
-import MassConverter from "./converters/Mass";
-import TimeConverter from "./converters/Time";
+import DigitalStorage from "./converters/DigitalStorage";
+import Length from "./converters/Length";
+import Mass from "./converters/Mass";
+import Time from "./converters/Time";
 
 export const CONVERTERS = [
   {
     name: 'Digital Storage',
-    convert: new DigitalStorageConverter(),
+    convert: new DigitalStorage(),
     units: [
       {
         name: 'Bit',
@@ -36,7 +37,7 @@ export const CONVERTERS = [
   },
   {
     name: 'Mass',
-    convert: new MassConverter(),
+    convert: new Mass(),
     units: [
       {
         name: 'Picogram',
@@ -48,7 +49,7 @@ export const CONVERTERS = [
       },
       {
         name: 'Microgram',
-        abbr: 'mcg'
+        abbr: 'µg'
       },
       {
         name: 'Milligram',
@@ -78,7 +79,7 @@ export const CONVERTERS = [
   },
   {
     name: 'Time',
-    convert: new TimeConverter(),
+    convert: new Time(),
     units: [
       {
         name: 'Nanosecond',
@@ -86,7 +87,7 @@ export const CONVERTERS = [
       },
       {
         name: 'Microsecond',
-        abbr: 'us'
+        abbr: 'µs'
       },
       {
         name: 'Millisecond',
@@ -129,13 +130,56 @@ export const CONVERTERS = [
         abbr: 'c'
       },
     ]
+  },
+  {
+    name: 'Length',
+    convert: new Length(),
+    units: [
+      {
+        name: 'Nanometre',
+        abbr: 'nm'
+      },
+      {
+        name: 'Micrometre',
+        abbr: 'µm'
+      },
+      {
+        name: 'Milimetre',
+        abbr: 'mm'
+      },
+      {
+        name: 'Centimetre',
+        abbr: 'cm'
+      },
+      {
+        name: 'Inch',
+        abbr: 'in'
+      },
+      {
+        name: 'Foot',
+        abbr: 'ft'
+      },
+      {
+        name: 'Metre',
+        abbr: 'm'
+      },
+      {
+        name: 'Yard',
+        abbr: 'yd'
+      },
+      {
+        name: 'Kilometre',
+        abbr: 'km'
+      },
+      {
+        name: 'Mile',
+        abbr: 'mi'
+      },
+      {
+        name: 'Nautical mile',
+        abbr: 'NM'
+      },
+    ]
   }
 ]
 
-//
-//export const UNITS = {
-//  DIGITAL_STORAGE: {
-//    BIT: 'b',
-//    BYTE: 'B'
-//  }
-//}

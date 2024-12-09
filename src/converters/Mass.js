@@ -1,6 +1,6 @@
 import Converter from './Converter';
 
-export default class MassConverter extends Converter {
+export default class Mass extends Converter {
   #grams = 0;
 
   from(unit) {
@@ -8,7 +8,7 @@ export default class MassConverter extends Converter {
       this.#grams = this.value / 1000 / 1000 / 1000 / 1000;
     } else if (unit === 'ng') {
       this.#grams = this.value / 1000 / 1000 / 1000;
-    } else if (unit === 'mcg') {
+    } else if (unit === 'µg') {
       this.#grams = this.value / 1000 / 1000;
     } else if (unit === 'mg') {
       this.#grams = this.value / 1000;
@@ -31,7 +31,7 @@ export default class MassConverter extends Converter {
       return this.#grams * 1000 * 1000 * 1000 * 1000;
     } else if (unit === 'ng') {
       return this.#grams * 1000 * 1000 * 1000;
-    } else if (unit === 'mcg') {
+    } else if (unit === 'µg') {
       return this.#grams * 1000 * 1000;
     } else if (unit === 'mg') {
       return this.#grams * 1000;

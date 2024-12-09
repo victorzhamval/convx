@@ -1,6 +1,6 @@
 import Converter from './Converter';
 
-export default class DigitalStorageConverter extends Converter {
+export default class DigitalStorage extends Converter {
   #bytes = 0;
 
   from(unit) {
