@@ -4,23 +4,25 @@ import { CONVERTERS } from './converters';
 
 function App() {
   const [converter, setConverter] = useState(CONVERTERS[0]);
+  const units = Object.values(converter.units);
   const [converterData, setConverterData] = useState({
     value: '1',
-    from: converter.units[0].abbr,
-    to: converter.units[1].abbr,
+    from: units[0].abbr,
+    to: units[1].abbr,
   });
 
   const [output, setOutput] = useState(0);
 
   function handleOnChangeConverter(e) {
     const { value } = e.target;
-    setConverter(CONVERTERS[value]);
-
+    const selectedConverter = CONVERTERS[value];
+    const units = Object.values(selectedConverter.units);
+    setConverter(selectedConverter);
     setConverterData(old => ({
       ...old,
-      from: CONVERTERS[value].units[0].abbr,
-      to: CONVERTERS[value].units[1].abbr
-    }))
+      from: units[0].abbr,
+      to: units[1].abbr
+    }));
   }
 
   function handleOnChangeData(e) {
@@ -30,7 +32,7 @@ function App() {
 
   function handleConvert() {
     const { value, from, to } = converterData;
-    let converted = converter.convert.set(value).from(from).to(to);
+    const converted = converter.set(value).from(from).to(to);
     setOutput(converted);
   }
 
@@ -54,14 +56,14 @@ function App() {
           <div className="flex flex-row gap-2">
             <Select name="from" value={converterData.from} onChange={handleOnChangeData}>
               {
-                converter.units.map((unit, index) => (
+                Object.values(converter.units).map((unit, index) => (
                   <option key={index} value={unit.abbr}>{unit.name}</option>
                 ))
               }
             </Select>
             <Select name="to" value={converterData.to} onChange={handleOnChangeData}>
               {
-                converter.units.map((unit, index) => (
+                Object.values(converter.units).map((unit, index) => (
                   <option key={index} value={unit.abbr}>{unit.name}</option>
                 ))
               }

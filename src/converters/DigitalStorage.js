@@ -2,36 +2,63 @@ import Converter from './Converter';
 
 export default class DigitalStorage extends Converter {
   #bytes = 0;
+  name = 'Digital Storage';
+  units = Object.freeze({
+    bit: {
+      name: 'Bit',
+      abbr: 'b'
+    },
+    byte: {
+      name: 'Byte',
+      abbr: 'B'
+    },
+    kilobyte: {
+      name: 'Kilobyte',
+      abbr: 'KB'
+    },
+    megabyte: {
+      name: 'Megabyte',
+      abbr: 'MB'
+    },
+    gigabyte: {
+      name: 'Gigabyte',
+      abbr: "GB"
+    },
+    terabyte: {
+      name: 'Terabyte',
+      abbr: 'TB'
+    }
+  });
 
   from(unit) {
-    if (unit === 'b') {
+    if (unit === this.units.bit.abbr) {
       this.#bytes = this.value / 8;
-    } else if (unit === 'B') {
+    } else if (unit === this.units.byte.abbr) {
       this.#bytes = this.value;
-    } else if (unit === 'KB') {
+    } else if (unit === this.units.kilobyte.abbr) {
       this.#bytes = this.value * 1000;
-    } else if (unit === 'MB') {
+    } else if (unit === this.units.megabyte.abbr) {
       this.#bytes = this.value * 1000 * 1000;
-    } else if (unit === 'GB') {
+    } else if (unit === this.units.gigabyte.abbr) {
       this.#bytes = this.value * 1000 * 1000 * 1000;
-    } else if (unit === 'TB') {
-      this.#bytes = this.value * 1000 * 1000 * 1000;
+    } else if (unit === this.units.terabyte.abbr) {
+      this.#bytes = this.value * 1000 * 1000 * 1000 * 1000;
     }
     return this;
   }
 
   to(unit) {
-    if (unit === 'b') {
+    if (unit === this.units.bit.abbr) {
       return this.#bytes * 8;
-    } else if (unit === 'B') {
+    } else if (unit === this.units.byte.abbr) {
       return this.#bytes;
-    } else if (unit === 'KB') {
+    } else if (unit === this.units.kilobyte.abbr) {
       return this.#bytes / 1000;
-    } else if (unit === 'MB') {
+    } else if (unit === this.units.megabyte.abbr) {
       return this.#bytes / 1000 / 1000;
-    } else if (unit === 'GB') {
+    } else if (unit === this.units.gigabyte.abbr) {
       return this.#bytes / 1000 / 1000 / 1000;
-    } else if (unit === 'TB') {
+    } else if (unit === this.units.terabyte.abbr) {
       return this.#bytes / 1000 / 1000 / 1000 / 1000;
     }
   }
