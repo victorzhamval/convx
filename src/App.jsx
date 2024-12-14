@@ -32,7 +32,7 @@ function App() {
 
   function handleConvert() {
     const { value, from, to } = converterData;
-    const converted = converter.set(value).from(from).to(to);
+    const converted = converter.set(parseFloat(value)).from(from).to(to);
     setOutput(converted);
   }
 
